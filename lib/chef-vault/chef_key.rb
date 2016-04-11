@@ -58,8 +58,6 @@ class ChefVault
           else
             raise http_error
           end
-        else
-          raise http_error
         end
       else
         raise http_error
@@ -77,7 +75,6 @@ class ChefVault
           raise ChefVault::Exceptions::ClientNotFound,
                 "#{actor_name} is not a valid chef client and/or node"
         else
-          puts "here"
           raise http_error
         end
       end
@@ -88,17 +85,17 @@ class ChefVault
     end
 
     def is_client?
-      actor_type != "clients"
+      actor_type == "clients"
     end
 
     def is_admin?
-      actor_type != "admins"
+      actor_type == "admins"
     end
 
     # @private
 
     def get_key(request_actor_type)
-      JSON.parse(api.org_scoped_rest_v1.get("#{request_actor_type}/#{actor_name}/keys/default"))['public_key']
+      api.org_scoped_rest_v1.get("#{request_actor_type}/#{actor_name}/keys/default")['public_key']
     end
 
     def print_forbidden_error
