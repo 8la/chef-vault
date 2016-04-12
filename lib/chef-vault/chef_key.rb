@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'json'
+require "json"
 
 class ChefVault
   class ChefKey
@@ -95,7 +95,7 @@ class ChefVault
     # @private
 
     def get_key(request_actor_type)
-      api.org_scoped_rest_v1.get("#{request_actor_type}/#{actor_name}/keys/default")['public_key']
+      api.org_scoped_rest_v1.get("#{request_actor_type}/#{actor_name}/keys/default")["public_key"]
     end
 
     def print_forbidden_error
