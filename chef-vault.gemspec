@@ -39,6 +39,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "aruba", "~> 0.6"
   s.add_development_dependency "simplecov", "~> 0.9"
   s.add_development_dependency "simplecov-console", "~> 0.2"
-  s.add_development_dependency "rubocop", "~> 0.30"
   s.add_development_dependency "chef"
 end
